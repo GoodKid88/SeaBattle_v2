@@ -73,10 +73,10 @@ public class Game {
 
 
     public void startGame() {
-        System.out.println("Let's start placing ships " + player1.getName() + "!" + player2.getName() + " don't look!");
+        System.out.println("Let's start placing ships " + player1.getName() + " ! " + player2.getName() + " don't look!");
         addAllShips(player1);
 
-        System.out.println("Let's start placing ships " + player2.getName() + "!" + player1.getName() + " don't look!");
+        System.out.println("Let's start placing ships " + player2.getName() + " ! " + player1.getName() + " don't look!");
         addAllShips(player2);
 
         player1.getOwnFild().showFild();
@@ -89,28 +89,37 @@ public class Game {
         while (true) {
             try {
                 while (player1.isShotResult()) {
-                    if (player1.getShips().size() != 0) {
+                    if (player2.getShips().size() != 0) {
                         System.out.println(player1.getName() + " your turn");
                         player1.attack(player2, scanner.nextInt(), scanner.nextInt());
                     } else {
-                        System.out.println(player2.getName() + " Won!");
                         break;
                     }
                 }
-                player2.setShotResult();
                 player2.getEnemyFild().showFild();
+                if (player2.getShips().size() == 0) {
+                    System.out.println(player1.getName() + " Won!");
+                    break;
+                }
 
                 while (player2.isShotResult()) {
-                    if (player2.getShips().size() != 0) {
+                    if (player1.getShips().size() != 0) {
                         System.out.println(player2.getName() + " your turn");
                         player2.attack(player1, scanner.nextInt(), scanner.nextInt());
                     } else {
-                        System.out.println(player1.getName() + " Won!");
                         break;
                     }
                 }
-                player1.setShotResult();
                 player1.getEnemyFild().showFild();
+
+                player1.setShotResult();
+                player2.setShotResult();
+
+                if (player1.getShips().size() == 0) {
+                    System.out.println(player2.getName() + " Won!");
+                    break;
+                }
+
             } catch (InputMismatchException ex) {
                 System.out.println("Incorrect input!");
             }
