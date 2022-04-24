@@ -41,7 +41,7 @@ public class Player {
             Coordinate coordinate = new Coordinate(x, y);
 
             if (player.ownFild.isCellEmpty(x, y) || player.ownFild.getField()[x][y].equals(player.ownFild.getOreolSymbol())) {
-                System.out.println("Мимо");
+                System.out.println("Miss");
                 shotResult = false;
                 player.enemyFild.getField()[x][y] = player.ownFild.getMissSymbol();
             } else {
@@ -50,9 +50,9 @@ public class Player {
                     if (ship.getCoordinates().contains(coordinate)) {
                         ship.getCoordinates().remove(coordinate);
                         if (ship.getCoordinates().size() != 0) {
-                            System.out.println("Попал");
+                            System.out.println("Hit");
                         } else {
-                            System.out.println("Потопил");
+                            System.out.println("Sunk");
                             player.ships.remove(ship);
                         }
                         shotResult = true;
@@ -62,7 +62,7 @@ public class Player {
                 player.enemyFild.getField()[x][y] = player.ownFild.getHitlSymbol();
             }
         } catch (ArrayIndexOutOfBoundsException ex) {
-            System.out.println("Введены неверные координаты");
+            System.out.println("Incorrect coordinates");
         }
 //            for (int i = 0; i < player.ships.size(); i++) {
 //                for (int j = 0; j < player.ships.get(i).getCoordinates().size(); j++) {
