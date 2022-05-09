@@ -54,7 +54,7 @@ public class Game {
 
                 if (ship.isShipValid()) {
                     if (player.getOwnFild().isShipAdded(ship)) {
-                        player.getOwnFild().addOreol(ship);
+                        player.getOwnFild().addAureole(ship);
                         player.getShips().add(ship);
                         counter++;
                     } else {

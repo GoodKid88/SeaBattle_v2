@@ -64,18 +64,6 @@ public class Player {
         } catch (ArrayIndexOutOfBoundsException ex) {
             System.out.println("Incorrect coordinates");
         }
-//            for (int i = 0; i < player.ships.size(); i++) {
-//                for (int j = 0; j < player.ships.get(i).getCoordinates().size(); j++) {
-//                    if (player.ships.get(i).getCoordinates().get(j).equals(coordinate)) {
-//                        player.ships.get(i).getCoordinates().remove(j);
-//                        if (player.ships.get(i).getCoordinates().size() != 0) {
-//                            System.out.println("Попал");
-//                        } else {
-//                            System.out.println("Потопил");
-//                        }
-//                        shotResult = true;
-//                    }
-//                }
     }
 
     public void setShotResult() {

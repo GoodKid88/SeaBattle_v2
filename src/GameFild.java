@@ -48,7 +48,7 @@ public class GameFild {
         }
     }
 
-    public void addOreol(Ship ship) {
+    public void addAureole(Ship ship) {
         int j = ship.getCoordinates().size();
         int n = 0;
         if (ship.getTypeOfShip().equals("horizontal")) {
